@@ -52,6 +52,10 @@ term
     ;
 primary_expression
     :DOUBLE_LITERAL
+    | LP expression RP
+    {
+        $$=$2;
+    }
     ;
 %%
 

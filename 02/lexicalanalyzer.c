@@ -53,9 +53,21 @@ void get_token(Token* token){
             return;
         } else if (current_char=='-'){
             token->kind =SUB_OPERATOR_TOKEN;
+            return;
         } else if (current_char=='*'){
+            token->kind=MUL_OPERATOR_TOKEN;
+            return;
+        } else if (current_char=='/'){
             token->kind=DIV_OPERATOR_TOKEN;
-        } else if(isdigit(current_char)){
+            return;
+        }else if (current_char=='('){
+            token->kind=LEFT_PAREN_TOKEN;
+            return;
+        }else if (current_char==')'){
+            token->kind=RIGHT_PAREN_TOKEN;
+            return;
+        }
+        else if(isdigit(current_char)){
             if(status==INITIAL_STATUS){
                 status =IN_INT_PART_STATUS;
             } else if(status==DOT_STATUS){
